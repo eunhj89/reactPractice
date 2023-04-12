@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./Delivery02.css";
 
@@ -43,10 +43,12 @@ const Delivery02 = () => {
     >
       <thead>
         <tr className="left">
-          <img
-            src={`${process.env.PUBLIC_URL}/back_arrow.png`}
-            alt="goBackBtnImage"
-          />
+          <Link to={`/`}>
+            <img
+              src={`${process.env.PUBLIC_URL}/back_arrow.png`}
+              alt="goBackBtnImage"
+            />
+          </Link>
         </tr>
         <tr className="center">
           <td className="center" colSpan="12">
