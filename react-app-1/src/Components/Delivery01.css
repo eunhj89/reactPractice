@@ -1,0 +1,9 @@
+.delivery-table {
+  width: 600px;
+  border: 1px solid #444444;
+}
+
+.center {
+  text-align: center;
+  vertical-align: center;
+}
