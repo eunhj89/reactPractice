@@ -19,7 +19,7 @@ const Delivery02 = () => {
       .catch((error) => {
         console.log("상세 페이지 정보 추출 실패");
       });
-  });
+  }, [params.id]);
 
   return (
     <table
