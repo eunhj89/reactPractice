@@ -28,13 +28,14 @@ const Delivery02 = () => {
     >
       <thead>
         <tr className="left">
-          <Link to={`/`}>
-            <img
-              src={`${process.env.PUBLIC_URL}/back_arrow.png`}
-              alt="goBackBtnImage"
-              classNaam="img"
-            />
-          </Link>
+          <td className="left">
+            <Link to={`/`}>
+              <img
+                src={`${process.env.PUBLIC_URL}/back_arrow.png`}
+                alt="goBackBtnImage"
+              />
+            </Link>
+          </td>
         </tr>
         <tr className="center">
           <td className="center" colSpan="2">
@@ -46,6 +47,7 @@ const Delivery02 = () => {
             <img
               src={`${process.env.PUBLIC_URL}/${detailInfo.imageFile}`}
               alt="detailShopImage"
+              className="img"
             />
           </td>
         </tr>
