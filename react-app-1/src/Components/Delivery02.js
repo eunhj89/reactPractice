@@ -37,12 +37,12 @@ const Delivery02 = () => {
           </Link>
         </tr>
         <tr className="center">
-          <td className="center" colSpan="12">
+          <td className="center" colSpan="2">
             <h1>{detailInfo.name}</h1>
           </td>
         </tr>
         <tr className="center">
-          <td className="center" colSpan="12">
+          <td className="center" colSpan="2">
             <img
               src={`${process.env.PUBLIC_URL}/${detailInfo.imageFile}`}
               alt="detailShopImage"
@@ -52,36 +52,20 @@ const Delivery02 = () => {
       </thead>
       <tbody>
         <tr>
-          <td className="right" colSpan="4">
-            별점
-          </td>
-          <td className="left" colSpan="8">
-            {detailInfo.point}
-          </td>
+          <td className="right td">별점</td>
+          <td className="left td">{detailInfo.point}</td>
         </tr>
         <tr>
-          <td className="right" colSpan="4">
-            리뷰
-          </td>
-          <td className="left" colSpan="8">
-            {detailInfo.review}
-          </td>
+          <td className="right td">리뷰</td>
+          <td className="left td">{detailInfo.review}</td>
         </tr>
         <tr>
-          <td className="right" colSpan="4">
-            거리
-          </td>
-          <td className="left" colSpan="8">
-            {detailInfo.distance}
-          </td>
+          <td className="right td">거리</td>
+          <td className="left td">{detailInfo.distance}</td>
         </tr>
         <tr>
-          <td className="right" colSpan="4">
-            배달시간
-          </td>
-          <td className="left" colSpan="8">
-            {detailInfo.time}
-          </td>
+          <td className="right td">배달시간</td>
+          <td className="left td">{detailInfo.time}</td>
         </tr>
       </tbody>
     </table>

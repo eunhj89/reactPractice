@@ -8,12 +8,19 @@
   vertical-align: center;
 }
 
+.td {
+  height: 30px;
+}
+
 .left {
   text-align: left;
+  padding-left: 10px;
 }
 
 .right {
+  width: 200px;
   text-align: right;
+  font-weight: bold;
 }
 
 .img {
