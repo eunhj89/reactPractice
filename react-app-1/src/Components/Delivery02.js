@@ -4,15 +4,7 @@ import axios from "axios";
 import "./Delivery02.css";
 
 const Delivery02 = () => {
-  const [detailInfo, setDetailInfo] = useState({
-    id: "",
-    name: "",
-    point: "",
-    review: "",
-    distance: "",
-    time: "",
-    imageFile: "",
-  });
+  const [detailInfo, setDetailInfo] = useState({});
   const params = useParams();
 
   useEffect(() => {
@@ -21,15 +13,8 @@ const Delivery02 = () => {
       .then((response) => {
         setDetailInfo((prev) => ({
           ...prev,
-          id: response.data.shop.id,
-          name: response.data.shop.name,
-          point: response.data.shop.point,
-          review: response.data.shop.review,
-          distance: response.data.shop.distance,
-          time: response.data.shop.time,
-          imageFile: response.data.shop.imageFile,
+          ...response.data.shop,
         }));
-        console.log(response.data.shop.id);
       })
       .catch((error) => {
         console.log("상세 페이지 정보 추출 실패");
@@ -47,6 +32,7 @@ const Delivery02 = () => {
             <img
               src={`${process.env.PUBLIC_URL}/back_arrow.png`}
               alt="goBackBtnImage"
+              classNaam="img"
             />
           </Link>
         </tr>
@@ -66,34 +52,34 @@ const Delivery02 = () => {
       </thead>
       <tbody>
         <tr>
-          <td className="right" colSpan="1">
+          <td className="right" colSpan="4">
             별점
           </td>
-          <td className="left" colSpan="3">
+          <td className="left" colSpan="8">
             {detailInfo.point}
           </td>
         </tr>
         <tr>
-          <td className="right" colSpan="1">
+          <td className="right" colSpan="4">
             리뷰
           </td>
-          <td className="left" colSpan="3">
+          <td className="left" colSpan="8">
             {detailInfo.review}
           </td>
         </tr>
         <tr>
-          <td className="right" colSpan="1">
+          <td className="right" colSpan="4">
             거리
           </td>
-          <td className="left" colSpan="3">
+          <td className="left" colSpan="8">
             {detailInfo.distance}
           </td>
         </tr>
         <tr>
-          <td className="right" colSpan="1">
+          <td className="right" colSpan="4">
             배달시간
           </td>
-          <td className="left" colSpan="3">
+          <td className="left" colSpan="8">
             {detailInfo.time}
           </td>
         </tr>

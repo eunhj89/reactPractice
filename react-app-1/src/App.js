@@ -6,7 +6,7 @@ import Delivery02 from "./Components/Delivery02";
 
 function App() {
   return (
-    <div align="center">
+    <div className="App" align="center">
       <BrowserRouter>
         <Routes>
           <Route path="/test" Component={() => <Navigate to="/" />} />
