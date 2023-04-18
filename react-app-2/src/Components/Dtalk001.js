@@ -65,7 +65,6 @@ const Dtalk001 = () => {
       .get("http://localhost:3300/dcx/3/groupMember")
       .then((response) => {
         setTargetList(response.data.groupMember);
-        console.log(response.data.groupMember);
       })
       .catch((error) => {
         console.log("리스트 추출 실패");
@@ -73,7 +72,7 @@ const Dtalk001 = () => {
   }, []);
 
   return (
-    <table className="table center" style={{ border: "1px solid #444444" }}>
+    <table className="table center">
       <thead>
         <tr className="center">
           <td className="center" colSpan="4">

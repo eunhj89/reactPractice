@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useMemo } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Moment from "react-moment";
 import "moment/locale/ko";
@@ -23,14 +23,12 @@ const Dtalk002 = () => {
         chatWindow.current.classList.add("scroll");
         setIsScroll(true);
       }
-
-      console.log(chatWindow.current.scrollHeight);
       chatWindow.current.scrollTo({
         top: chatWindow.current.scrollHeight,
         behavior: "smooth",
       });
     }
-  }, []);
+  }, [isScroll]);
 
   const sendMessageHandler = () => {
     if (sendMessage !== "") {
@@ -39,7 +37,6 @@ const Dtalk002 = () => {
         .then((response) => {
           setChat([...chat, sendMessage, response.data.conversation.response]);
           setSendMessage("");
-          moveScrollToReceiveMessage();
           setNowTime(Date.now());
         })
         .catch((error) => {
@@ -47,6 +44,16 @@ const Dtalk002 = () => {
         });
     }
   };
+
+  const enterKeyHandler = (event) => {
+    if (event.keyCode === 13) {
+      sendMessageHandler();
+    }
+  };
+
+  useEffect(() => {
+    moveScrollToReceiveMessage();
+  });
 
   return (
     <div className="center div">
@@ -93,6 +100,7 @@ const Dtalk002 = () => {
             setSendMessage(event.target.value);
           }}
           className="input margin"
+          onKeyUp={enterKeyHandler}
         />
         <button className="center margin" onClick={sendMessageHandler}>
           보내기
