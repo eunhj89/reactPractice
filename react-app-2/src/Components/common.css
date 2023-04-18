@@ -7,6 +7,7 @@
 
 .box {
   height: 500px;
+  width: 600px;
 }
 
 .table {
@@ -39,8 +40,16 @@
   padding: 10px;
 }
 
+.padding-zero {
+  padding: 0px;
+}
+
 .margin {
   margin: 10px;
+}
+
+.margin-zero {
+  margin: 0px;
 }
 
 .margin-minus {

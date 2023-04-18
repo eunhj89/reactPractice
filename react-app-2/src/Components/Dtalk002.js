@@ -69,7 +69,7 @@ const Dtalk002 = () => {
       </div>
       <div className="float-center margin">{params.name}</div>
       <div className="box" ref={chatWindow}>
-        <ul>
+        <ul className="padding-zero">
           {chat.map((data, idx) => (
             <li
               key={idx}
