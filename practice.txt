@@ -1,0 +1,103 @@
+##1. useSWR
+
+##2. 훅 생성 해서 써보기
+	
+export default function useLiveDetail(liveId) {
+  const { data, error } = useSWR(`https://admin.idiots.band/lives/${liveId}`)
+ 
+  return {
+    data,
+    error,
+    isLoading: !data && !error
+  }
+}
+
+##3. useForm
+
+##4. useEffect에서 closer 의 문제 발생 가능 -> useRef를 이용하여 가장 최근값을 가져올 수 있다.
+
+##5. useReducer
+const [state, dispatch] = useReducer(reducer, initialArg, init);
+reducer 함수 작성과 dispatch로 action을 발생시키는 것을 이해하는 것이 중요
+
+	
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    case 'reset':
+      return { count: 0 }
+    case 'set':
+      return {count: action.payload}
+    default:
+      throw new Error();
+  }
+}
+ 
+export default function Counter() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+  return (
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+    </>
+  );
+}
+
+##6. AbortController
+
+##7. useContext
+
+생성 시, 
+
+import React, { useState, createContext } from "react";
+export const AppContext = createContext();
+
+const initialItems = {
+  drink: [
+    { name: "Powerade", price: "1800" },
+    { name: "Coca Cola", price: "1100" },
+  ],
+};
+
+function App() {
+  const [items, setItem] = useState(initialItems);
+
+  const addDrink = (newDrink) => {
+    setItem({ ...items, drink: [...items.drink, newDrink] });
+  };
+
+  return (
+      <AppContext.Provider value={{ items, addDrink }}>
+        <Mart />
+      </AppContext.Provider>
+    </div>
+  );
+}
+export default App;
+
+쓸때, 
+
+import React, { useContext } from "react";
+import { AppContext } from "../App";
+
+function Emart3F() {
+  const { items, addDrink } = useContext(AppContext);
+  return (
+    <div>
+      ....
+    </div>
+  );
+}
+
+##8. useMemo : useMemo(() => fn, [deps])
+리렌더링이 발생할 경우, 특정 변수가 변할 때에만 useMemo에 등록한 함수가 실행되도록 처리하면 불필요한 연산을 하지 않게 됨
+##9. useCallback : useCallback(fn, [deps])
+useCallback이 함수를 반환하기 때문에 그 함수를 가지는 const 변수에 초기화하는 것이 일반적인 모양
+1.자식 컴포넌트에 props로 함수를 전달할 경우, 2.외부에서 값을 가져오는 api를 호출하는 경우에 사용
+1의 경우, useCallback을 사용해서 함수를 재사용하는 것으로 자식 컴포넌트의 리렌더링을 방지
+2의 경우, 사용함으로써 무한루프 방지 가능
