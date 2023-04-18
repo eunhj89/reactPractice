@@ -46,6 +46,7 @@ const Dtalk002 = () => {
   };
 
   const enterKeyHandler = (event) => {
+    event.preventDefault();
     if (event.keyCode === 13) {
       sendMessageHandler();
     }
@@ -95,6 +96,7 @@ const Dtalk002 = () => {
       </div>
       <div>
         <input
+          type="text"
           value={sendMessage}
           onChange={(event) => {
             setSendMessage(event.target.value);

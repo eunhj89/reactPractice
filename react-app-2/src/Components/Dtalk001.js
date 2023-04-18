@@ -13,6 +13,7 @@ const Dtalk001 = () => {
   const [companyList, setCompanyList] = useState([]);
 
   const familyBtnHandler = (event) => {
+    event.preventDefault();
     if (isFamilyOpen === false) {
       event.target.src = `${process.env.PUBLIC_URL}/close.png`;
       setIsFamilyOpen(true);
@@ -29,6 +30,7 @@ const Dtalk001 = () => {
   };
 
   const friendBtnHandler = (event) => {
+    event.preventDefault();
     if (isFriendOpen === false) {
       event.target.src = `${process.env.PUBLIC_URL}/close.png`;
       setIsFriendOpen(true);
@@ -45,6 +47,7 @@ const Dtalk001 = () => {
   };
 
   const companyBtnHandler = (event) => {
+    event.preventDefault();
     if (isCompanyOpen === false) {
       event.target.src = `${process.env.PUBLIC_URL}/close.png`;
       setIsCompanyOpen(true);
