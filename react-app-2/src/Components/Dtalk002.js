@@ -52,6 +52,10 @@ const Dtalk002 = () => {
     }
   };
 
+  const setSendMessageHandler = (event) => {
+    setSendMessage(event.target.value);
+  };
+
   useEffect(() => {
     moveScrollToReceiveMessage();
   });
@@ -98,9 +102,7 @@ const Dtalk002 = () => {
         <input
           type="text"
           value={sendMessage}
-          onChange={(event) => {
-            setSendMessage(event.target.value);
-          }}
+          onChange={setSendMessageHandler}
           className="input margin"
           onKeyUp={enterKeyHandler}
         />
